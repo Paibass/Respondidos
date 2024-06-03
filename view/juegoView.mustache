@@ -1,0 +1,9 @@
+<h1>{{ 0.pregunta_texto }}</h1>
+<form action="process_answer.php" method="post">
+    {{# respuestas }}
+        <input type="radio" name="respuesta_id" value="{{ respuesta_id }}">
+        <label>{{ respuesta_texto }}</label><br>
+    {{/ respuestas }}
+    <input type="hidden" name="pregunta_id" value="{{ pregunta_id }}">
+    <input type="submit" value="Enviar Respuesta">
+</form>

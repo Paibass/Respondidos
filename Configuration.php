@@ -1,7 +1,9 @@
 <?php
 include_once("controller/LoginController.php");
 include_once ("controller/InicioController.php");
+include_once ("controller/PreguntasController.php");
 
+include_once ("model/PreguntasModel.php");
 include_once ("model/InicioModel.php");
 include_once ("model/LoginModel.php");
 
@@ -18,6 +20,11 @@ class Configuration
 {
 
     // CONTROLLERS
+
+    public static function getPreguntasController()
+    {
+        return new PreguntasController(self::getPreguntasModel(),self::getPresenter());
+    }
     public static function getInicioController()
     {
         return new InicioController(self::getInicioModel(),self::getPresenter());
@@ -28,6 +35,9 @@ class Configuration
     }
 
     // MODELS
+    public static function getPreguntasModel(){
+        return new PreguntasModel(self::getDatabase());
+    }
     private static function getInicioModel()
     {
         return new InicioModel(self::getDatabase());
